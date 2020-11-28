@@ -1,0 +1,61 @@
+﻿@page
+@model Employe_management.Pages.EmployeList.CreateModel
+
+
+<br />
+<h2 class="text-info">Add New Employe</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Employe.Name"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Employe.Name" class="form-control" />
+            </div>
+            <span asp-validation-for="Employe.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Employe.Contact"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Employe.Contact" class="form-control" />
+            </div>
+            <span asp-validation-for="Employe.Contact" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Employe.Email"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Employe.Email" class="form-control" />
+            </div>
+            <span asp-validation-for="Employe.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Employe.Salary"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Employe.Salary" class="form-control" />
+            </div>
+            <span asp-validation-for="Employe.Salary" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <input type="submit" value="Create" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

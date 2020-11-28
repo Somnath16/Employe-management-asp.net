@@ -1,0 +1,85 @@
+﻿@page
+@model Employe_management.Pages.EmployeList.IndexModel
+
+
+
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-9">
+
+        <h2 class="text-info">Employe List</h2>
+
+    </div>
+    <div class="col-3">
+
+        <a asp-page="Create" class="btn btn-info from-control text-white">Add New Employe</a>
+
+    </div>
+
+
+    <div class="col-12 border p-3 mt-3">
+        <from method="post">
+            @if (Model.Employes.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                           
+                            <label asp-for="Employes.FirstOrDefault().Id"></label>
+                        </th>
+                        <th>
+                           
+                            <label asp-for="Employes.FirstOrDefault().Name"></label>
+                        </th>
+                        <th>
+                            @*@Html.DisplayNameFor(m => m.Employes.FirstOrDefault().Contact)*@
+                            <label asp-for="Employes.FirstOrDefault().Contact"></label>
+                        </th>
+                        <th>
+                            @*@Html.DisplayNameFor(m => m.Employes.FirstOrDefault().Email)*@
+                            <label asp-for="Employes.FirstOrDefault().Email"></label>
+                        </th>
+                        <th>
+                            @*@Html.DisplayNameFor(m => m.Employes.FirstOrDefault().Salary)*@
+                            <label asp-for="Employes.FirstOrDefault().Salary"></label>
+                        </th>
+                        <th>
+
+                        </th>
+
+                    </tr>
+                    @foreach (var item in Model.Employes)
+                    {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Salary)
+                    </td>
+                    <td>
+                        <a asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</a>
+                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                    </td>
+                </tr>
+                    }
+                </table>
+
+            }
+            else
+            {
+                <p>No Employe Listed</p>
+            }
+        </from>
+    </div>
+
+</div>
